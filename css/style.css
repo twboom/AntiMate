@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+:root {
+    --background-color: #181A1B;
+}
+
+/* General */
+
+body {
+    background-color: var(--background-color);
+}
+
+/* Header */
+
+header {
+    width: 100%;
+}
+
+h1.header {
+    font-family: 'Ubuntu';
+    font-size: 88px;
+    color: white;
+    width: fit-content;
+    margin: auto;
+}
