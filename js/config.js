@@ -3,5 +3,5 @@ const config = {
 }
 
 const defaults = {
-    "size": [16,16]
+    "size": [17,17]
 }

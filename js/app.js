@@ -1,18 +1,30 @@
 const board = [];
-const frame = [];
+const frames = [];
 const session = [];
+
+session.color = _ => { return document.getElementById('color').value };
+
+board.togglePixel = function(evt) {
+    const pxl = evt.target.dataset;
+    pxl.color = session.color();
+    evt.target.style.backgroundColor = pxl.color;
+}
 
 // Creating the board
 
-    // Button
-board.Button = class {
+    // Pixel
+board.Pixel = class {
     constructor(x, y, parent) {
         const el = document.createElement('button');
         el.dataset.x = x;
         el.dataset.y = y;
         el.dataset.color = '';
 
-        el.setAttribute('class', 'pixel')
+        el.setAttribute('class', 'pixel');
+
+        el.dataset.color = '';
+
+        el.addEventListener('click', board.togglePixel)
 
         parent.appendChild(el)
     }
@@ -37,7 +49,7 @@ const Board = class {
 
             // Run for every x-pixel
             for (let x = 0; x < this.width; x++) {
-                const btn = new board.Button(x, y, row);
+                const pxl = new board.Pixel(x, y, row);
             }
 
             cont.appendChild(row)
